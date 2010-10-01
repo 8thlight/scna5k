@@ -23,6 +23,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 gem 'cucumber'
+gem 'cucumber-rails'
 gem 'heroku'
 
 group :test, :development do
