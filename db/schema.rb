@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101005171207) do
+ActiveRecord::Schema.define(:version => 20101005205925) do
 
   create_table "runners", :force => true do |t|
     t.string   "name"
     t.integer  "number"
-    t.decimal  "time",       :precision => 8, :scale => 2
+    t.string   "time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

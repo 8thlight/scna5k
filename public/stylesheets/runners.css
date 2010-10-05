@@ -1,0 +1,18 @@
+#runners {
+  font-family: 'Helvetica Neue';
+}
+
+#runners > div {
+}
+
+#runners .name {
+  font-weight: bold;
+}
+
+#runners .number {
+  color: blue;
+}
+
+#runners .time {
+  color: green;
+}

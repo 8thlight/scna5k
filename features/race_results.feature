@@ -2,9 +2,8 @@ Feature: List Runners
   In order to see how the race went
   Runners should be able to see the results
 
-  @wip
   Scenario: List all runners, sorted by time
-    Given there are 3 runners:
+    Given the following runners:
       | name | number | time |
       | Eric | 1 | 18:00.24 |
       | Justin | 2 | 17:55.23 |

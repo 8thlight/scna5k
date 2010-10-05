@@ -1,12 +1,13 @@
-Given /^there are (\d+) runners:$/ do |quantity, table|
+Given /^the following runners:$/ do |table|
   # table is a Cucumber::Ast::Table
 
-  quantity.times do |i|
-    name, number, time = table.raw[i]
-  end
+  Runner.create!(table.hashes)
 end
 
 Then /^I should see the following runners:$/ do |table|
   # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+
+  actual_table = tableish('div#runners > div', 'span')
+  p actual_table
+  table.diff!(actual_table)
 end

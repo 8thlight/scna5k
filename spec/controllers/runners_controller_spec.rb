@@ -8,7 +8,7 @@ describe RunnersController do
 
   describe "GET index" do
     it "assigns all runners as @runners" do
-      Runner.stub(:all) { [mock_runner] }
+      Runner.stub(:find).with(:all, :order => 'time asc') { [mock_runner] }
       get :index
       assigns(:runners).should eq([mock_runner])
     end
