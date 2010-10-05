@@ -1,18 +1,24 @@
-<h1>Listing runners</h1>
+<img src='images/scna5k.png'>
 
-<div id='runners'>
+<table id='runners'>
+
+  <tr>
+    <th>Number</th>
+    <th>Runner Name</th>
+    <th>Time</th>
+  </tr>
 
   <% @runners.each do |runner| %>
-    <div id='runner-<%= runner.number %>'>
-      <span class='name'><%= runner.name %></span>
-      <span class='number'><%= runner.number %></span>
-      <span class='time'><%= runner.time %></span>
+    <tr class='runner'>
+      <td class='number'><%= runner.number %></td>
+      <td class='name'><%= runner.name %></td>
+      <td class='time'><%= runner.time %></td>
       <!--
       <td><%= link_to 'Show', runner %></td>
       <td><%= link_to 'Edit', edit_runner_path(runner) %></td>
       <td><%= link_to 'Destroy', runner, :confirm => 'Are you sure?', :method => :delete %></td>
       -->
-    </div>
+    </tr>
   <% end %>
 
-</div>
+</table>

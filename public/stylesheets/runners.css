@@ -1,8 +1,19 @@
 #runners {
+  margin: auto;
+  width: 400px;
   font-family: 'Helvetica Neue';
 }
 
-#runners > div {
+table {
+  border-spacing: 20px;
+}
+
+#runners tr > th {
+  font-size: 14pt;
+  text-align: left;
+}
+
+.runner {
 }
 
 #runners .name {
@@ -10,9 +21,13 @@
 }
 
 #runners .number {
-  color: blue;
+  font-weight: bold;
+  color: #359;
+  text-align: center;
+  width: 20px;
 }
 
 #runners .time {
+  font-weight: bold;
   color: green;
 }

@@ -18,8 +18,8 @@ describe "runners/index.html.erb" do
 
   it "renders a list of runners" do
     render
-    rendered.should have_selector("div>span.name", :content => "Name".to_s, :count => 2)
-    rendered.should have_selector("div>span.number", :content => 1.to_s, :count => 2)
-    rendered.should have_selector("div>span.time", :content => "9.99".to_s, :count => 2)
+    rendered.should have_selector("tr>td.name", :content => "Name".to_s, :count => 2)
+    rendered.should have_selector("tr>td.number", :content => 1.to_s, :count => 2)
+    rendered.should have_selector("tr>td.time", :content => "9.99".to_s, :count => 2)
   end
 end

@@ -1,5 +1,10 @@
 body { background-color: #fff; color: #333; }
 
+#main {
+  margin: 20px auto;
+  width: 500px;
+}
+
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
