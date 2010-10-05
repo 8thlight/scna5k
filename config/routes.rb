@@ -1,4 +1,7 @@
 Scna5k::Application.routes.draw do
+  resources :runners
+  root :to => 'runners#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
