@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
 
   def index
-    exists = Admin.where(:username => params[:username], :password => params[:password]).count > 0
+    exists = Admin.all.count > 0
     redirect_to root_url unless exists
   end
 

@@ -2,7 +2,6 @@ Feature: Administration
   In order to manage the runners
   An administratrator should be able to add/delete/edit users
 
-  @wip
   Scenario: Login Successfully
     Given the following users:
       | username | password |
@@ -14,7 +13,6 @@ Feature: Administration
     And I press "login"
     Then I should be on the admin page
 
-  @wip
   Scenario: Login Unsuccessfully
     Given the following users:
       | username | password |
@@ -27,7 +25,6 @@ Feature: Administration
     Then I should be on the home page
     And I should see "Login failed"
 
-  @wip
   Scenario: A non-logged in user tries to go to the admin section
     Given There are no users
     When I go to the admin page
