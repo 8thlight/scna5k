@@ -1,4 +1,7 @@
 Scna5k::Application.routes.draw do
+  get "admin/index"
+  post "admin/login"
+
   resources :runners
   root :to => 'runners#index'
 
