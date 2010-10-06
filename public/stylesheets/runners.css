@@ -4,6 +4,21 @@
   font-family: 'Helvetica Neue';
 }
 
+#loginform, #loginbutton {
+  position: absolute;
+  margin: 10px;
+  right: 0px;
+  bottom: 0px;
+}
+
+#loginform {
+}
+
+#loginform input[type='text'], #loginform input[type='password'] {
+  border: 1px solid #777;
+  padding: 3px;
+}
+
 table {
   border-spacing: 5px;
 }
