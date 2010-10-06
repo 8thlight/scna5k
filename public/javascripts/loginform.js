@@ -3,6 +3,6 @@ Event.observe(window, 'load', function() {
   Event.observe('loginbutton', 'click', function() {
     $('loginbutton').hide();
     $('loginform').show();
-    $('loginbutton').focus();
+    $('username').focus();
   });
 });
