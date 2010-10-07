@@ -26,7 +26,9 @@ Feature: Administration
     And I should see "Login failed"
 
   Scenario: A non-logged in user tries to go to the admin section
-    Given There are no users
+    Given the following users:
+      | username | password |
+      | eric | password |
     When I go to the admin page
     Then I should be on the home page
 
