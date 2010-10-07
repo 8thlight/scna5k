@@ -19,6 +19,12 @@
   padding: 3px;
 }
 
+#loginform input[type='submit'] {
+  /*
+  border: 1px solid #777;
+  */
+}
+
 table {
   border-spacing: 5px;
 }
@@ -46,18 +52,19 @@ table {
   -moz-border-radius: 3px;
 }
 
-#runners .name {
+#runners td.name {
+  color: #359;
   font-weight: bold;
 }
 
-#runners .number {
+#runners td.number {
   font-weight: bold;
   color: #359;
   text-align: center;
   width: 40px;
 }
 
-#runners .time {
+#runners td.time {
   font-weight: bold;
   color: green;
   text-align: center;

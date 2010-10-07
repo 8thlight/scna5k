@@ -1,6 +1,6 @@
 <a id='loginbutton' href='javascript:void(0);'>Login</a>
 
-<%= form_tag('/admin/login', :method => 'post', :id => 'loginform') do %>
+<%= form_tag('/admin/login', :method => 'post', :style => 'display: none;', :id => 'loginform') do %>
   <div>
     <%= label_tag :username, 'Username:' %>
     <%= text_field_tag :username %>
