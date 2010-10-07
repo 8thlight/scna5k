@@ -2,7 +2,9 @@
 
 <%= form_tag('/admin/login', :method => 'post', :id => 'loginform') do %>
   <div>
+    <%= label_tag :username, 'Username:' %>
     <%= text_field_tag :username %>
+    <%= label_tag :password, 'Password:' %>
     <%= password_field_tag :password %>
     <%= submit_tag 'Login', :id => 'login' %>
   </div>
