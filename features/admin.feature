@@ -25,6 +25,7 @@ Feature: Administration
     Then I should be on the home page
     And I should see "Login failed"
 
+  @wip
   Scenario: A non-logged in user tries to go to the admin section
     Given the following users:
       | username | password |
