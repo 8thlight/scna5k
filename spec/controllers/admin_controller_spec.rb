@@ -8,11 +8,12 @@ describe AdminController do
 
   describe "GET index" do
     it "redirects to home page when no admins exist" do
+      Admin.stub(:where) { [] }
       get :index
       response.should redirect_to('/')
     end
     it "does not redirect to home page when any admins exist" do
-      session[:logged_in] = true
+      Admin.stub(:where) { [mock_admin] }
       get :index
       response.status.should == 200
     end
@@ -22,7 +23,7 @@ describe AdminController do
 
     before(:each) do
       Admin.stub(:where) { [] }
-      Admin.stub(:where).with(:username => 'eric', :password => 'smith') { [mock_admin] }
+      Admin.stub(:where).with(:username => 'eric', :password => Digest::SHA1.hexdigest('smith')) { [mock_admin] }
     end
 
     describe "with valid params" do
