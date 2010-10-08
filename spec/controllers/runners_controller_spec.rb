@@ -47,10 +47,10 @@ describe RunnersController do
         assigns(:runner).should be(mock_runner)
       end
 
-      it "redirects to the created runner" do
+      it "redirects to the admin page" do
         Runner.stub(:new) { mock_runner(:save => true) }
         post :create, :runner => {}
-        response.should redirect_to(runner_url(mock_runner))
+        response.should redirect_to(admin_index_url)
       end
     end
 
@@ -85,10 +85,10 @@ describe RunnersController do
         assigns(:runner).should be(mock_runner)
       end
 
-      it "redirects to the runner" do
+      it "redirects to the admin page" do
         Runner.stub(:find) { mock_runner(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(runner_url(mock_runner))
+        response.should redirect_to(admin_index_url)
       end
     end
 
