@@ -23,6 +23,11 @@ describe RunnersController do
   end
 
   describe "GET new" do
+    it "should redirect to index if no authentication" do
+      Admin.stub(:where) { [] }
+      get :new
+      response.should redirect_to(root_url)
+    end
     it "assigns a new runner as @runner" do
       Runner.stub(:new) { mock_runner }
       get :new

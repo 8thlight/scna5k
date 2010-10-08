@@ -32,3 +32,9 @@ Feature: Administration
     When I go to the admin page
     Then I should be on the home page
 
+  Scenario: A non-logged in user tries to add an entrant
+    Given the following users:
+      | username | password |
+      | eric | password |
+    When I go to the new runner page
+    Then I should be on the home page

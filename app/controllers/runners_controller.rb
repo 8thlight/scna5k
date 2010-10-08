@@ -26,6 +26,11 @@ class RunnersController < ApplicationController
   def new
     @runner = Runner.new
 
+    unless logged_in
+      redirect_to root_url
+      return
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @runner }
