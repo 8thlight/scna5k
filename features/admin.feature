@@ -57,7 +57,6 @@ Feature: Administration
       |Paul Pagel|789|11:22.33|
     When I try to update runner with id 2 to have the name "Fred"
     Then I should be on the home page
-    And show me the page
     And I should see "Micah Martin"
     And I should not see "Fred"
 
