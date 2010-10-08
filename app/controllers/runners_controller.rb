@@ -40,6 +40,11 @@ class RunnersController < ApplicationController
   # GET /runners/1/edit
   def edit
     @runner = Runner.find(params[:id])
+
+    unless logged_in
+      redirect_to root_url
+      return
+    end
   end
 
   # POST /runners

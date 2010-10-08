@@ -13,3 +13,7 @@ end
 Given /^There are no users$/ do
   Admin.delete_all
 end
+
+When /^I try to edit runner with id (\d+)$/ do |id|
+  visit edit_runner_path(id)
+end

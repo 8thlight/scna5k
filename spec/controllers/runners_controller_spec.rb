@@ -36,6 +36,12 @@ describe RunnersController do
   end
 
   describe "GET edit" do
+    it "should redirect to index if no authentication" do
+      Runner.stub(:find).with("2") { mock_runner }
+      get :edit, :id => "2"
+      response.should redirect_to(root_url)
+    end
+
     it "assigns the requested runner as @runner" do
       Runner.stub(:find).with("37") { mock_runner }
       get :edit, :id => "37"
