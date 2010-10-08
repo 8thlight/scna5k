@@ -15,10 +15,4 @@ class AdminController < ApplicationController
     end
   end
 
-  private
-
-  def logged_in
-    Admin.where(:username => session[:username], :password => session[:password]).count > 0
-  end
-
 end
