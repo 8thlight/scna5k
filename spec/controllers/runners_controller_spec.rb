@@ -118,7 +118,7 @@ describe RunnersController do
     it "redirects to the runners list" do
       Runner.stub(:find) { mock_runner }
       delete :destroy, :id => "1"
-      response.should redirect_to(runners_url)
+      response.should redirect_to(admin_index_url)
     end
   end
 

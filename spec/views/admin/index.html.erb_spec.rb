@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'admin/index.html.erb' do
+
   before(:each) do
     assign(:runners, [
       stub_model(Runner,
@@ -16,5 +17,7 @@ describe 'admin/index.html.erb' do
     rendered.should have_selector('tr>td.name', :content => 'Name'.to_s, :count => 1)
     rendered.should have_selector('tr>td.number', :content => 1.to_s, :count => 1)
     rendered.should have_selector('tr>td.time', :content => '9.99'.to_s, :count => 1)
+    rendered.should have_selector('tr>td.delete', :content => 'Delete'.to_s, :count => 1)
   end
+
 end

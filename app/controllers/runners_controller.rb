@@ -76,7 +76,7 @@ class RunnersController < ApplicationController
     @runner.destroy
 
     respond_to do |format|
-      format.html { redirect_to(runners_url) }
+      format.html { redirect_to(admin_index_url) }
       format.xml  { head :ok }
     end
   end

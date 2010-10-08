@@ -9,9 +9,12 @@ Given /^I am logged in$/ do
   click_button 'Login'
 end
 
-delete_runner = lambda do |i|
-  pending # express the regexp above with the code you wish you had
+When /^I delete the (\d+)nd runner$/ do |n|
+  within(".runner:nth-child(#{n.to_i})") do
+    click_link 'Delete'
+  end
 end
 
-When /^I delete the (\d+)nd runner$/, &delete_runner
-When /^I edit the (\d+)st runner$/, &delete_runner
+When /^I edit the (\d+)st runner$/ do |n|
+  pending
+end
