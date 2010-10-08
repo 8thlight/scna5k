@@ -10,17 +10,6 @@ class RunnersController < ApplicationController
     end
   end
 
-  # GET /runners/1
-  # GET /runners/1.xml
-  def show
-    @runner = Runner.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @runner }
-    end
-  end
-
   # GET /runners/new
   # GET /runners/new.xml
   def new

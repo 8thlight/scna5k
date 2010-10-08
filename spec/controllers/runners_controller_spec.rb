@@ -14,14 +14,6 @@ describe RunnersController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested runner as @runner" do
-      Runner.stub(:find).with("37") { mock_runner }
-      get :show, :id => "37"
-      assigns(:runner).should be(mock_runner)
-    end
-  end
-
   describe "GET new" do
     it "should redirect to index if no authentication" do
       Admin.stub(:where) { [] }

@@ -2,7 +2,7 @@ Scna5k::Application.routes.draw do
   get "admin/index"
   post "admin/login"
 
-  resources :runners
+  resources :runners, :except => :show
   root :to => 'runners#index'
 
   # The priority is based upon order of creation:
