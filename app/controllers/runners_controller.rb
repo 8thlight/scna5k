@@ -60,6 +60,11 @@ class RunnersController < ApplicationController
   # PUT /runners/1
   # PUT /runners/1.xml
   def update
+    unless logged_in
+      redirect_to root_url
+      return
+    end
+
     @runner = Runner.find(params[:id])
 
     respond_to do |format|
@@ -76,6 +81,11 @@ class RunnersController < ApplicationController
   # DELETE /runners/1
   # DELETE /runners/1.xml
   def destroy
+    unless logged_in
+      redirect_to root_url
+      return
+    end
+
     @runner = Runner.find(params[:id])
     @runner.destroy
 
