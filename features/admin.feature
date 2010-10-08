@@ -55,8 +55,11 @@ Feature: Administration
       |Chad Fowler|123|11:22.33|
       |Micah Martin|456|11:22.33|
       |Paul Pagel|789|11:22.33|
-    When I try to update runner with id 2
+    When I try to update runner with id 2 to have the name "Fred"
     Then I should be on the home page
+    And show me the page
+    And I should see "Micah Martin"
+    And I should not see "Fred"
 
   @wip
   Scenario: A non-logged in user tries to delete an entrant
@@ -65,15 +68,11 @@ Feature: Administration
       |Chad Fowler|123|11:22.33|
       |Micah Martin|456|11:22.33|
       |Paul Pagel|789|11:22.33|
-    When I try to delete runner with id 2
+    When I try to delete runner with id 1
     Then I should be on the home page
+    And I should see "Chad Fowler"
 
   @wip
   Scenario: A non-logged in user tries to create an entrant
-    Given the following runners:
-      |name|number|time|
-      |Chad Fowler|123|11:22.33|
-      |Micah Martin|456|11:22.33|
-      |Paul Pagel|789|11:22.33|
-    When I try to create runner with id 2
+    When I try to create a new runner
     Then I should be on the home page
