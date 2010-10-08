@@ -48,7 +48,6 @@ Feature: Administration
     When I try to edit runner with id 2
     Then I should be on the home page
 
-  @wip
   Scenario: A non-logged in user tries to update an entrant
     Given the following runners:
       |name|number|time|
@@ -60,7 +59,6 @@ Feature: Administration
     And I should see "Micah Martin"
     And I should not see "Fred"
 
-  @wip
   Scenario: A non-logged in user tries to delete an entrant
     Given the following runners:
       |name|number|time|
@@ -71,7 +69,6 @@ Feature: Administration
     Then I should be on the home page
     And I should see "Chad Fowler"
 
-  @wip
   Scenario: A non-logged in user tries to create an entrant
     When I try to create a new runner
     Then I should be on the home page
