@@ -39,6 +39,11 @@ class RunnersController < ApplicationController
   # POST /runners
   # POST /runners.xml
   def create
+    unless logged_in
+      redirect_to root_url
+      return
+    end
+
     @runner = Runner.new(params[:runner])
 
     respond_to do |format|

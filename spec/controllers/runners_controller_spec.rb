@@ -43,32 +43,58 @@ describe RunnersController do
 
   describe "POST create" do
 
-    describe "with valid params" do
-      it "assigns a newly created runner as @runner" do
-        Runner.stub(:new).with({'these' => 'params'}) { mock_runner(:save => true) }
-        post :create, :runner => {'these' => 'params'}
-        assigns(:runner).should be(mock_runner)
+    describe "without authentication" do
+
+      it "should not create a new runner object" do
+        session = {}
+        Admin.stub(:where) { [] }
+        Runner.should_not_receive :new
+        post :create, :runner => {}
       end
 
-      it "redirects to the admin page" do
-        Runner.stub(:new) { mock_runner(:save => true) }
+      it "should redirect to root url" do
+        session = {}
+        Admin.stub(:where) { [] }
         post :create, :runner => {}
-        response.should redirect_to(admin_index_url)
+        response.should redirect_to(root_url)
       end
+
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved runner as @runner" do
-        Runner.stub(:new).with({'these' => 'params'}) { mock_runner(:save => false) }
-        post :create, :runner => {'these' => 'params'}
-        assigns(:runner).should be(mock_runner)
+    describe "with authentication" do
+
+      describe "with valid params" do
+        it "assigns a newly created runner as @runner" do
+          Admin.stub(:where) { [ 42 ] }
+          Runner.stub(:new).with({'these' => 'params'}) { mock_runner(:save => true) }
+          post :create, :runner => {'these' => 'params'}
+          assigns(:runner).should be(mock_runner)
+        end
+
+        it "redirects to the admin page" do
+          Admin.stub(:where) { [ 42 ] }
+          Runner.stub(:new) { mock_runner(:save => true) }
+          post :create, :runner => {}
+          response.should redirect_to(admin_index_url)
+        end
       end
 
-      it "re-renders the 'new' template" do
-        Runner.stub(:new) { mock_runner(:save => false) }
-        post :create, :runner => {}
-        response.should render_template("new")
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved runner as @runner" do
+          Admin.stub(:where) { [ 42 ] }
+          Runner.stub(:new).with({'these' => 'params'}) { mock_runner(:save => false) }
+          post :create, :runner => {'these' => 'params'}
+          assigns(:runner).should be(mock_runner)
+        end
+
+        it "re-renders the 'new' template" do
+          Admin.stub(:where) { [ 42 ] }
+          Runner.stub(:new) { mock_runner(:save => false) }
+          post :create, :runner => {}
+          response.should render_template("new")
+        end
       end
+
     end
 
   end

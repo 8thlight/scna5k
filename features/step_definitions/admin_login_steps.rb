@@ -30,5 +30,5 @@ end
 
 When /^I try to create runner with id (\d+)$/ do |id|
   rack_test_session_wrapper = Capybara.current_session.driver
-  rack_test_session_wrapper.process :post, runner_path(id)
+  rack_test_session_wrapper.process :post, runners_path
 end
