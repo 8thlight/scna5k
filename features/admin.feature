@@ -7,7 +7,7 @@ Feature: Administration
       | username | password |
       | eric | password |
     When I go to the home page
-    And I fill in the following
+    And I fill in the following:
       | username | eric |
       | password | password |
     And I press "login"
@@ -18,7 +18,7 @@ Feature: Administration
       | username | password |
       | eric | password|
     When I go to the home page
-    And I fill in the following
+    And I fill in the following:
       | username | eric |
       | password | wrong |
     And I press "login"
