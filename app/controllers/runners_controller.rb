@@ -2,7 +2,7 @@ class RunnersController < ApplicationController
   # GET /runners
   # GET /runners.xml
   def index
-    @runners = Runner.find(:all, :order => 'time asc')
+    @runners = all_runners
 
     respond_to do |format|
       format.html # index.html.erb

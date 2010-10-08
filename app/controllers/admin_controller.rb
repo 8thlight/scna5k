@@ -1,7 +1,15 @@
 class AdminController < ApplicationController
 
   def index
-    redirect_to root_url unless logged_in
+    if logged_in then
+      @runners = all_runners
+
+      respond_to do |format|
+        format.html
+      end
+    else
+      redirect_to root_url
+    end
   end
 
   def login

@@ -1,2 +1,13 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<table id='runners'>
+
+  <% @runners.each do |runner| %>
+    <tr class='runner'>
+      <td class='number'><%= runner.number %></td>
+      <td class='name'><%= runner.name %></td>
+      <td class='time'><%= runner.time %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<%= link_to 'New Runner', new_runner_path %>
