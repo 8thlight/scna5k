@@ -39,15 +39,41 @@ Feature: Administration
     When I go to the new runner page
     Then I should be on the home page
 
-  @wip
   Scenario: A non-logged in user tries to edit an entrant
-    Given the following users:
-      | username | password |
-      | eric | password |
-    And the following runners:
+    Given the following runners:
       |name|number|time|
       |Chad Fowler|123|11:22.33|
       |Micah Martin|456|11:22.33|
       |Paul Pagel|789|11:22.33|
     When I try to edit runner with id 2
+    Then I should be on the home page
+
+  @wip
+  Scenario: A non-logged in user tries to update an entrant
+    Given the following runners:
+      |name|number|time|
+      |Chad Fowler|123|11:22.33|
+      |Micah Martin|456|11:22.33|
+      |Paul Pagel|789|11:22.33|
+    When I try to update runner with id 2
+    Then I should be on the home page
+
+  @wip
+  Scenario: A non-logged in user tries to delete an entrant
+    Given the following runners:
+      |name|number|time|
+      |Chad Fowler|123|11:22.33|
+      |Micah Martin|456|11:22.33|
+      |Paul Pagel|789|11:22.33|
+    When I try to delete runner with id 2
+    Then I should be on the home page
+
+  @wip
+  Scenario: A non-logged in user tries to create an entrant
+    Given the following runners:
+      |name|number|time|
+      |Chad Fowler|123|11:22.33|
+      |Micah Martin|456|11:22.33|
+      |Paul Pagel|789|11:22.33|
+    When I try to create runner with id 2
     Then I should be on the home page

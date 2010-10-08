@@ -17,3 +17,18 @@ end
 When /^I try to edit runner with id (\d+)$/ do |id|
   visit edit_runner_path(id)
 end
+
+When /^I try to update runner with id (\d+)$/ do |id|
+  rack_test_session_wrapper = Capybara.current_session.driver
+  rack_test_session_wrapper.process :put, runner_path(id)
+end
+
+When /^I try to delete runner with id (\d+)$/ do |id|
+  rack_test_session_wrapper = Capybara.current_session.driver
+  rack_test_session_wrapper.process :delete, runner_path(id)
+end
+
+When /^I try to create runner with id (\d+)$/ do |id|
+  rack_test_session_wrapper = Capybara.current_session.driver
+  rack_test_session_wrapper.process :post, runner_path(id)
+end
