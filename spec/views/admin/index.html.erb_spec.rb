@@ -18,6 +18,7 @@ describe 'admin/index.html.erb' do
     rendered.should have_selector('tr>td.number', :content => 1.to_s, :count => 1)
     rendered.should have_selector('tr>td.time', :content => '9.99'.to_s, :count => 1)
     rendered.should have_selector('tr>td.delete', :content => 'Delete'.to_s, :count => 1)
+    rendered.should have_selector('tr>td.edit', :content => 'Edit'.to_s, :count => 1)
   end
 
 end

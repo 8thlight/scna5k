@@ -16,5 +16,7 @@ When /^I delete the (\d+)nd runner$/ do |n|
 end
 
 When /^I edit the (\d+)st runner$/ do |n|
-  pending
+  within(".runner:nth-child(#{n.to_i})") do
+    click_link 'Edit'
+  end
 end
