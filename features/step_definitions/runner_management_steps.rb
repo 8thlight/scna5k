@@ -9,10 +9,9 @@ Given /^I am logged in$/ do
   click_button 'Login'
 end
 
-When /^I delete the (\d+)nd runner$/ do |arg1|
+delete_runner = lambda do |i|
   pending # express the regexp above with the code you wish you had
 end
 
-When /^I edit the (\d+)st runner$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
+When /^I delete the (\d+)nd runner$/, &delete_runner
+When /^I edit the (\d+)st runner$/, &delete_runner
