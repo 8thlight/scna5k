@@ -3,7 +3,6 @@ Feature: Runner Webservice
   I should be able to
   Sync with a web service
 
-  @wip
   Scenario: Get runners
     Given the following runners:
       |name| number | time |
@@ -39,5 +38,5 @@ Feature: Runner Webservice
       |Skim |456| 14:00|
     Then I should have the following runners
       |name| number | time |
-      |Eric Smith| 123 | 12:00|
-      |Craig Demyanovich|456| 14:00|
+      |Jim Suchy| 123 | 12:00|
+      |Skim |456| 14:00|
