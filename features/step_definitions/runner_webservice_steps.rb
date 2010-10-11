@@ -15,13 +15,6 @@ Then /^I should have in my response the following runners:$/ do |table|
       runner[key] = value.to_s
     end
   end
-=begin old xml code
-  runners = @runners_xml.map do |runner|
-    Hash[*(['name', 'number', 'time'].map do |attr|
-      [ attr, runner.xpath('.//'+attr).text ]
-    end.flatten)]
-  end
-=end
   table.diff! runners
 end
 
