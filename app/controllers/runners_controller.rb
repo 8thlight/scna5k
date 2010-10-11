@@ -47,7 +47,7 @@ class RunnersController < ApplicationController
 
   # POST /runners/upload
   def upload
-    @runners = params[:runners].map do |runner|
+    @runners = JSON.restore(params[:runners]).map do |runner|
       Runner.new(runner)
     end
 

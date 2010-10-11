@@ -45,14 +45,22 @@ describe RunnersController do
   describe "POST upload" do
 
     it "should give a 200 response status" do
-      post :upload, :runners => [mock_runner]
+      JSON.stub(:restore) { [mock_runner] }
+      post :upload, :runners => []
       response.status.should == 200
     end
 
     it "should overwrite existing runners with uploaded data" do
-      Runner.stub(:new).with({'these' => 'params'}) { mock_runner(:save => true) }
-      post :upload, :runners => [{'these' => 'params'}]
+      JSON.stub(:restore) { [42] }
+      Runner.stub(:new).with(42) { mock_runner(:save => true) }
+      post :upload, :runners => []
       assigns(:runners).should == [mock_runner]
+    end
+
+    it "should accept JSON-encoded runner data only" do
+      JSON.should_receive(:restore).with([42]).and_return { [42] }
+      Runner.stub(:new) { mock_runner(:save => true) }
+      post :upload, :runners => [42]
     end
 
   end
