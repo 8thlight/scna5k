@@ -1,4 +1,6 @@
 class RunnersController < ApplicationController
+  skip_before_filter :authorize, :only => [:index, :upload]
+
   # GET /runners
   # GET /runners.xml
   def index
@@ -16,11 +18,6 @@ class RunnersController < ApplicationController
   def new
     @runner = Runner.new
 
-    unless logged_in
-      redirect_to root_url
-      return
-    end
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @runner }
@@ -30,21 +27,11 @@ class RunnersController < ApplicationController
   # GET /runners/1/edit
   def edit
     @runner = Runner.find(params[:id])
-
-    unless logged_in
-      redirect_to root_url
-      return
-    end
   end
 
   # POST /runners
   # POST /runners.xml
   def create
-    unless logged_in
-      redirect_to root_url
-      return
-    end
-
     @runner = Runner.new(params[:runner])
 
     respond_to do |format|
@@ -58,14 +45,24 @@ class RunnersController < ApplicationController
     end
   end
 
+  # POST /runners/upload
+  def upload
+    @runners = params[:runners].map do |runner|
+      Runner.new(runner)
+    end
+
+    respond_to do |format|
+      if @runners.all? &:save
+        format.html { render :text => 'OK' }
+      else
+        format.html { render :text => 'FAIL' }
+      end
+    end
+  end
+
   # PUT /runners/1
   # PUT /runners/1.xml
   def update
-    unless logged_in
-      redirect_to root_url
-      return
-    end
-
     @runner = Runner.find(params[:id])
 
     respond_to do |format|
@@ -82,11 +79,6 @@ class RunnersController < ApplicationController
   # DELETE /runners/1
   # DELETE /runners/1.xml
   def destroy
-    unless logged_in
-      redirect_to root_url
-      return
-    end
-
     @runner = Runner.find(params[:id])
     @runner.destroy
 

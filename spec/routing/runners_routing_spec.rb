@@ -27,5 +27,9 @@ describe RunnersController do
       { :delete => "/runners/1" }.should route_to(:controller => "runners", :action => "destroy", :id => "1")
     end
 
+    it "recognizes and generates #upload" do
+      { :post => "/runners/upload" }.should route_to(:controller => "runners", :action => "upload")
+    end
+
   end
 end

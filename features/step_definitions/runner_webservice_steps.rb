@@ -24,10 +24,8 @@ end
 
 Given /^I call send with the following runners:$/ do |table|
   # table is a Cucumber::Ast::Table
-  pending
-  #runners = { :runner => { :name => name, :time => '11:22.44', :number => '42' } }
-  #rack_test_session_wrapper = Capybara.current_session.driver
-  #rack_test_session_wrapper.process :post, upload_runners_path, runners
+  rack_test_session_wrapper = Capybara.current_session.driver
+  rack_test_session_wrapper.process :post, upload_runners_path, :runners => table.hashes
 end
 
 Then /^I should have the following runners$/ do |table|

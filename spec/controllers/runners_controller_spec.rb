@@ -16,11 +16,11 @@ describe RunnersController do
 
   describe "GET new" do
     it "should redirect to index if no authentication" do
-      Admin.stub(:where) { [] }
       get :new
       response.should redirect_to(root_url)
     end
     it "assigns a new runner as @runner" do
+      Admin.stub(:where) { [ 42 ] }
       Runner.stub(:new) { mock_runner }
       get :new
       assigns(:runner).should be(mock_runner)
@@ -35,10 +35,26 @@ describe RunnersController do
     end
 
     it "assigns the requested runner as @runner" do
+      Admin.stub(:where) { [ 42 ] }
       Runner.stub(:find).with("37") { mock_runner }
       get :edit, :id => "37"
       assigns(:runner).should be(mock_runner)
     end
+  end
+
+  describe "POST upload" do
+
+    it "should give a 200 response status" do
+      post :upload, :runners => [mock_runner]
+      response.status.should == 200
+    end
+
+    it "should overwrite existing runners with uploaded data" do
+      Runner.stub(:new).with({'these' => 'params'}) { mock_runner(:save => true) }
+      post :upload, :runners => [{'these' => 'params'}]
+      assigns(:runners).should == [mock_runner]
+    end
+
   end
 
   describe "POST create" do
