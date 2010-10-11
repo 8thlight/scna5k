@@ -25,7 +25,7 @@ end
 Given /^I call send with the following runners:$/ do |table|
   # table is a Cucumber::Ast::Table
   rack_test_session_wrapper = Capybara.current_session.driver
-  rack_test_session_wrapper.process :post, upload_runners_path, :runners => table.hashes
+  rack_test_session_wrapper.process :post, upload_runners_path, :runners => table.hashes.to_json
 end
 
 Then /^I should have the following runners$/ do |table|
