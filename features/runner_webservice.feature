@@ -14,7 +14,6 @@ Feature: Runner Webservice
       |Eric Smith| 123 | 12:00|
       |Craig Demyanovich|456| 14:00|
 
-  @wip
   Scenario: Send runners
     Given there are no runners
     And I call send with the following runners:
@@ -26,7 +25,6 @@ Feature: Runner Webservice
       |Eric Smith| 123 | 12:00|
       |Craig Demyanovich|456| 14:00|
 
-  @wip
   Scenario: Send runners overwrites existing runners
     Given the following runners:
       |name| number | time |
