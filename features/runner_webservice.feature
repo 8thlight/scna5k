@@ -16,6 +16,9 @@ Feature: Runner Webservice
 
   Scenario: Send runners
     Given there are no runners
+    And the following users:
+      | username | password |
+      | eric | password |
     And I call send with the following runners:
       |name| number | time |
       |Eric Smith| 123 | 12:00|
@@ -30,6 +33,9 @@ Feature: Runner Webservice
       |name| number | time |
       |Eric Smith| 123 | 12:00|
       |Craig Demyanovich|456| 14:00|
+    And the following users:
+      | username | password |
+      | eric | password |
     And I call send with the following runners:
       |name| number | time |
       |Jim Suchy| 123 | 12:00|

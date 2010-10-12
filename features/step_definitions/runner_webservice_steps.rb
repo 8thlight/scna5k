@@ -24,8 +24,16 @@ end
 
 Given /^I call send with the following runners:$/ do |table|
   # table is a Cucumber::Ast::Table
-  rack_test_session_wrapper = Capybara.current_session.driver
-  rack_test_session_wrapper.process :post, upload_runners_path, :runners => table.hashes.to_json
+  wrapper = Capybara.current_session.driver
+  class << wrapper
+    alias oldenv env
+    def env
+      e = oldenv
+      e['HTTP_AUTHORIZATION'] = 'Basic ' + Base64.encode64('eric:password')
+      e
+    end
+  end
+  wrapper.process :post, upload_runners_path, :runners => table.hashes.to_json
 end
 
 Then /^I should have the following runners$/ do |table|

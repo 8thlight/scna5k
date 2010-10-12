@@ -45,6 +45,14 @@ class RunnersController < ApplicationController
     end
   end
 
+  before_filter :basicauth, :only => :upload
+
+  def basicauth
+    authenticate_or_request_with_http_basic do |user, pass|
+      Admin.where(:username => user, :password => Digest::SHA1.hexdigest(pass)).count > 0
+    end
+  end
+
   # POST /runners/upload
   def upload
     @runners = JSON.restore(params[:runners]).map do |runner|

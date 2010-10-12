@@ -44,23 +44,56 @@ describe RunnersController do
 
   describe "POST upload" do
 
-    it "should give a 200 response status" do
-      JSON.stub(:restore) { [mock_runner] }
-      post :upload, :runners => []
-      response.status.should == 200
+    describe "with basic authentication" do
+
+      it "should test for basic http auth" do
+        @request.env['HTTP_AUTHORIZATION'] = 'Basic ' + Base64.encode64('eric:password')
+        Admin.should_receive(:where).with(:username => 'eric', :password => Digest::SHA1.hexdigest('password')).exactly(1).times { [] }
+        post :upload, :runners => []
+      end
+
     end
 
-    it "should overwrite existing runners with uploaded data" do
-      JSON.stub(:restore) { [42] }
-      Runner.stub(:new).with(42) { mock_runner(:save => true) }
-      post :upload, :runners => []
-      assigns(:runners).should == [mock_runner]
+    describe "with authentication" do
+      before(:each) do
+        Admin.stub(:where) { [42] }
+        @request.env['HTTP_AUTHORIZATION'] = 'Basic ' + Base64.encode64('eric:password')
+      end
+
+      it "should give a 200 response status" do
+        JSON.stub(:restore) { [mock_runner] }
+        post :upload, :runners => []
+        response.status.should == 200
+      end
+
+      it "should overwrite existing runners with uploaded data" do
+        JSON.stub(:restore) { [42] }
+        Runner.stub(:new).with(42) { mock_runner(:save => true) }
+        post :upload, :runners => []
+        assigns(:runners).should == [mock_runner]
+      end
+
+      it "should accept JSON-encoded runner data only" do
+        JSON.should_receive(:restore).with([42]).and_return { [42] }
+        Runner.stub(:new) { mock_runner(:save => true) }
+        post :upload, :runners => [42]
+      end
     end
 
-    it "should accept JSON-encoded runner data only" do
-      JSON.should_receive(:restore).with([42]).and_return { [42] }
-      Runner.stub(:new) { mock_runner(:save => true) }
-      post :upload, :runners => [42]
+    describe "without authentication" do
+      before(:each) do
+        Admin.stub(:where) { [] }
+      end
+
+      it "should return a 401 status" do
+        post :upload, :runners => []
+        response.status.should == 401
+      end
+
+      it "should not affect any runners" do
+        Runner.should_not_receive(:new)
+        post :upload, :runners => []
+      end
     end
 
   end
