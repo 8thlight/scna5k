@@ -69,3 +69,8 @@ table {
   color: green;
   text-align: center;
 }
+
+#runners tr:nth-child(2) td {
+  background-color: #e0e7ef;
+  border: 1px dashed #ccc;
+}
