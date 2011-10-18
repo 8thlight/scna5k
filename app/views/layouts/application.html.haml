@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{'charset' => 'UTF-8'}
+    = csrf_meta_tag
+    %title
+      SCNA5K
+    = stylesheet_link_tag :application
+  %body
+    = image_tag "scna5k.png"
+    = yield
+
