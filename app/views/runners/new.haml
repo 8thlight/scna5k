@@ -1,0 +1,7 @@
+%h2 Add runners:
+%p Separate runners with a new line.
+
+= form_for :runners, :url => {:action => "create"}, :html => {:multipart => true} do |f|
+  =f.label :names, "Runner Names:"
+  =f.text_area :names
+  =f.submit "Add"

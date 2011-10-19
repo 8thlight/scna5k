@@ -1,0 +1,4 @@
+= form_for :runners, :url => upload_runners_from_csv_path, :html => {:multipart => true} do |f|
+  = f.label :uploaded_file, "Choose a CSV file"
+  = f.file_field :uploaded_file, :accept => "text/csv"
+  = f.submit "Upload"
