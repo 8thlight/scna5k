@@ -12,14 +12,21 @@ class RunnersController < ApplicationController
     @runner = Runner.new
   end
 
+  def update_collection
+    puts params[:runner].keys.inspect
+    Runner.update(params[:runner].keys, params[:runner].values)
+    redirect_to :root
+  end
+
   def create
     runner_names = params[:runners][:names]
     runners = Runner.create_runners_from_string(runner_names)
     redirect_to :root
   end
 
-  def edit
+  def edit_collection
     @runners = Runner.all
+    render "edit_collection"
   end
 
   protected
