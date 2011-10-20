@@ -1,8 +1,8 @@
+require 'csv'
+
 class Runner < ActiveRecord::Base
   validates_presence_of :name
-  validates :time, :numericality => true, :allow_nil => true
-
-  default_scope :order => "time ASC"
+  validates :minutes, :seconds, :numericality => true, :allow_nil => true
 
   after_create :set_runner_number
 
