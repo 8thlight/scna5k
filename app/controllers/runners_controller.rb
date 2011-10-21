@@ -29,7 +29,7 @@ class RunnersController < ApplicationController
   private
 
   def authenticate
-    ActionController::Base::http_basic_authenticate_with :name => Admin.first.username, :password => Admin.first.password, :only => [:create, :new, :update_collection, :edit_collection]
+    ActionController::Base::http_basic_authenticate_with :name => Admin.first.username, :password => Admin.first.password, :only => [:create, :new, :update_times, :edit_times]
   end
 
 
