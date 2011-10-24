@@ -121,7 +121,7 @@ input.submit {
 }
 
 textarea#runners_names {
-  font-family: Gill Sans, sans-serif;
+  font-family: Gill Sans, Gill Sans MT, sans-serif;
   font-size: 1em;
   font-style: normal;
   height: 100px;
