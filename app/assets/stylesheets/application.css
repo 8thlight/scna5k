@@ -1,3 +1,150 @@
 body {
-  background-color: #007799;
+  background-color: #FFF;
+  color: #333;
+  font-family: Gill Sans, sans-serif;
+  font-size: 100%;
+  font-style: normal;
+}
+
+img.stopwatch {
+  float: left;
+  width: 200px;
+  margin: 2em 0 3em 1em;
+}
+
+h1.scna {
+  float: right;
+  font-size: 3.5em;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin: 1.1em 0 0 0;
+  text-align: right;
+  width: 400px;
+}
+
+h1.five-k {
+  color: rgb(31, 142, 255);
+  font-size: 3.5em;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 2px;
+  float: right;
+  text-align: right;
+  width: 400px;
+  display: inline;
+  margin: 0 0 1em 0;
+}
+
+#container {
+  margin: 0 auto;
+  padding: 0 2em;
+  width: 50%;
+  width: 800px;
+}
+
+table {
+  line-height: 1.8em;
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(31, 142, 255, 0.10);
+}
+
+table td {
+  font-size: 1.2em;
+  text-align: right;
+}
+
+table td.name {
+  min-width: 100px;
+  text-align: left;
+}
+
+table td.number {
+  color: #666666;
+  display: inline-block;
+  text-align: right;
+  width: 2em;
+}
+
+p.add-runners,
+p.change-times {
+  display: inline-block;
+  font-size: 1.2em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+p.add-runners {
+  margin-right:1em;
+}
+
+a {
+  color: rgb(31, 142, 255);
+}
+
+p.runner-name {
+  color: rgb(31, 142, 255);
+  clear: both;
+  font-size: 1.5em;
+  margin: 1em 0 0.60em 0;
+}
+
+form input {
+  display: block;
+  height: 18px;
+  width: 290px;
+  padding: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: gray;
+  border: 1px solid #CCC;
+  -webkit-border-radius: 3px;
+  margin: 0.5em 0;
+}
+
+input.submit {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  color: #FFFFFF;
+  background-color: rgb(31, 142, 255);
+  font-size: 1.2em;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.1);
+  height: 30px;
+  width: 300px;
+  margin: 1.5em 0;
+}
+
+textarea#runners_names {
+  font-family: Gill Sans, sans-serif;
+  font-size: 1em;
+  font-style: normal;
+  height: 100px;
+  width: 290px;
+}
+
+label.runners-names {
+  font-size: 1.2em;
+  margin: 1em 0;
+  display: block;
+}
+
+p.info {
+  color: rgb(31, 142, 255);
+  font-style: italic;
+}
+
+h2.add {
+  clear: both;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+table td.time {
+  rgb(31, 142, 255);
+  letter-spacing: 2px;
 }

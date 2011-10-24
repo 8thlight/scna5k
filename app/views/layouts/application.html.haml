@@ -5,8 +5,12 @@
     = csrf_meta_tag
     %title
       SCNA5K
+    = stylesheet_link_tag :reset
     = stylesheet_link_tag :application
   %body
-    = image_tag "scna5k.png"
-    = yield
+    #container
+      = link_to image_tag("scna-5k-small.png", :class => "stopwatch"), :root
+      %h1.scna Software Craftsmanship North America 
+      %h1.five-k 5k
+      = yield
 
