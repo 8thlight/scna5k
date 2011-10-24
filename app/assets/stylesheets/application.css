@@ -43,6 +43,7 @@ h1.five-k {
 }
 
 table {
+  clear: both;
   line-height: 1.8em;
   width: 100%;
 }
