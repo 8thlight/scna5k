@@ -1,9 +1,11 @@
 body {
   background-color: #FFF;
+  border-top: 8px solid rgba(31, 142, 255, 0.1);
   color: #333;
   font-family: Gill Sans, Gill Sans MT, sans-serif;
   font-size: 100%;
   font-style: normal;
+  margin-bottom: 2em;
 }
 
 img.stopwatch {
@@ -58,6 +60,8 @@ table td {
 }
 
 table td.name {
+  font-weight: 300;
+  letter-spacing: 1px;
   min-width: 100px;
   text-align: left;
 }
@@ -93,13 +97,15 @@ p.runner-name {
 }
 
 form input {
+  color: #888888;
+  font-family: Gill Sans, Gill Sans MT, sans-serif;
+  font-size: 1em;
+  font-style: normal;
   display: block;
   height: 18px;
   width: 290px;
   padding: 4px;
-  font-size: 13px;
   line-height: 18px;
-  color: gray;
   border: 1px solid #CCC;
   -webkit-border-radius: 3px;
   margin: 0.5em 0;
@@ -121,11 +127,16 @@ input.submit {
 }
 
 textarea#runners_names {
+  color: #888888;
   font-family: Gill Sans, Gill Sans MT, sans-serif;
   font-size: 1em;
   font-style: normal;
   height: 100px;
   width: 290px;
+  padding: 4px;
+  line-height: 18px;
+  border: 1px solid #CCC;
+  -webkit-border-radius: 3px;
 }
 
 label.runners-names {
@@ -146,6 +157,5 @@ h2.add {
 }
 
 table td.time {
-  rgb(31, 142, 255);
   letter-spacing: 2px;
 }
