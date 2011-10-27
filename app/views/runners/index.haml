@@ -1,10 +1,14 @@
 %table
-  - sort_by_time(@runners).each do |runner|
+  - sort_by_time(@runners_with_times).each do |runner|
     %tr
       %td.number= runner.number
       %td.name= runner.name
-      -if runner.minutes && runner.seconds
-        %td.time= runner.minutes.to_s + ":" + ('%05.2f' % runner.seconds)
+      %td.time= runner.minutes.to_s + ":" + ('%05.2f' % runner.seconds)
+  - @runners_without_times.each do |runner|
+    %tr
+      %td.number= runner.number
+      %td.name= runner.name
+      %td.time
 %p.add-runners
   =link_to "Add Runners", new_runner_path
 %p.change-times

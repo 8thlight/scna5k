@@ -3,7 +3,9 @@ class RunnersController < ApplicationController
   before_filter :authenticate
 
   def index
-    @runners = Runner.all
+    # @runners = Runner.all
+    @runners_with_times = Runner.where("minutes IS NOT NULL AND seconds IS NOT NULL")
+    @runners_without_times = Runner.where("minutes IS NULL OR seconds IS NULL")
   end
 
   def new
