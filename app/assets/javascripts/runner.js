@@ -1,2 +1,10 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(function() {
+  flashLoop(0);
+});
+
+var flashLoop = function(count) {
+  count = count + 1;
+  if(count <= 6){
+    $("#flash-notices").fadeToggle(800, flashLoop(count));
+  };
+};
