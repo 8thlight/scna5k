@@ -8,6 +8,7 @@
     = stylesheet_link_tag :reset
     = stylesheet_link_tag :application
   %body
+    %p.flash= flash[:result]
     #container
       = link_to image_tag("scna-5k-small.png", :class => "stopwatch"), :root
       %h1.scna Software Craftsmanship North America 

@@ -1,6 +1,6 @@
 = form_for :runner, :url => {:action => 'update_times'} do
   - @runners.each do |runner|
-    %p.runner-name= runner.name
+    %p.runner-name= runner.number.to_s + " - " + runner.name
     = fields_for "runner[]", runner do |f|
       = f.label :minutes, "Minutes:"
       = f.text_field :minutes

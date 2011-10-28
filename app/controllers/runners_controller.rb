@@ -3,7 +3,6 @@ class RunnersController < ApplicationController
   before_filter :authenticate
 
   def index
-    # @runners = Runner.all
     @runners_with_times = Runner.where("minutes IS NOT NULL AND seconds IS NOT NULL")
     @runners_without_times = Runner.where("minutes IS NULL OR seconds IS NULL")
   end
@@ -28,10 +27,21 @@ class RunnersController < ApplicationController
     render "edit_times"
   end
 
+  def input_times
+    render "input_times_form"
+  end
+
+  def input_times_submit
+    runner = Runner.find_by_number(params[:runner][:number])
+    runner.update_attributes(:minutes => params[:runner][:minutes], :seconds => params[:runner][:seconds])
+    flash[:result] = "Runner ##{runner.number}'s time updated."
+    redirect_to "/input_times"
+  end
+
   private
 
   def authenticate
-    ActionController::Base::http_basic_authenticate_with :name => Admin.first.username, :password => Admin.first.password, :only => [:create, :new, :update_times, :edit_times]
+    ActionController::Base::http_basic_authenticate_with :name => Admin.first.username, :password => Admin.first.password, :only => [:create, :new, :update_times, :edit_times, :input_times, :input_times_submit]
   end
 
 

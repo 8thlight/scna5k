@@ -33,4 +33,16 @@ describe RunnersController do
     runner2.seconds.should == 2.01
   end
 
+  it "inputs a single time, given a time and runner number" do
+    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64(Admin.first.username + ":" + Admin.first.password)
+    runner = Runner.create(:name => "Harriet Tubman")
+
+    post :input_times_submit, :runner => {:number => runner.number, :minutes => 12, :seconds => 2.33}
+
+    runner.reload
+    runner.minutes.should == 12
+    runner.seconds.should == 2.33
+    response.should redirect_to "/input_times"
+  end
+
 end
