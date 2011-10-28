@@ -33,8 +33,13 @@ class RunnersController < ApplicationController
 
   def input_times_submit
     runner = Runner.find_by_number(params[:runner][:number])
-    runner.update_attributes(:minutes => params[:runner][:minutes], :seconds => params[:runner][:seconds])
-    flash[:result] = "Runner ##{runner.number}'s time updated."
+    if runner
+      runner.update_attributes(:minutes => params[:runner][:minutes], :seconds => params[:runner][:seconds])
+      flash[:success] = "Runner ##{runner.number}'s time updated."
+    else
+      flash[:failure] = "INVALID RUNNER NUMBER"
+    end
+
     redirect_to "/input_times"
   end
 

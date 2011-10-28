@@ -43,6 +43,16 @@ describe RunnersController do
     runner.minutes.should == 12
     runner.seconds.should == 2.33
     response.should redirect_to "/input_times"
+    flash[:success].should == "Runner ##{runner.number}'s time updated."
+  end
+
+  it "handles errors when an invalid runner number is input" do
+    @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64(Admin.first.username + ":" + Admin.first.password)
+
+    post :input_times_submit, :runner => {:number => 1, :minutes => 12, :seconds => 2.33}
+
+    flash[:failure].should == "INVALID RUNNER NUMBER"
+    response.should redirect_to "/input_times"
   end
 
 end
