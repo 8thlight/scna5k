@@ -37,7 +37,7 @@ class RunnersController < ApplicationController
       runner.update_attributes(:minutes => params[:runner][:minutes], :seconds => params[:runner][:seconds])
       flash[:success] = "Runner ##{runner.number}'s time updated."
     else
-      flash[:failure] = "INVALID RUNNER NUMBER"
+      flash[:failure] = "Invalid runner number."
     end
 
     redirect_to "/input_times"

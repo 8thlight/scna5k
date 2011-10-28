@@ -1,8 +1,13 @@
 = form_for :runner, :url => {:action => "input_times_submit"} do |f|
-  = f.label :number, "Runner Number:"
+  %p.runner-number
+    = f.label :number, "Runner Number:"
   = f.text_field :number
   = f.label :minutes, "Minutes:"
   = f.text_field :minutes
   = f.label :seconds, "Seconds:"
   = f.text_field :seconds
-  = f.submit "Save Time"
+  = f.submit "Save Time", :class => "submit"
+
+#flash-notices
+  %span.flash_success= flash[:success]
+  %span.flash_failure= flash[:failure]

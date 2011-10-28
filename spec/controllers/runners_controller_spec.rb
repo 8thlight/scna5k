@@ -51,7 +51,7 @@ describe RunnersController do
 
     post :input_times_submit, :runner => {:number => 1, :minutes => 12, :seconds => 2.33}
 
-    flash[:failure].should == "INVALID RUNNER NUMBER"
+    flash[:failure].should == "Invalid runner number."
     response.should redirect_to "/input_times"
   end
 
