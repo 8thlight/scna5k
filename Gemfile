@@ -2,10 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
-gem 'sqlite3'
 gem 'rake'
 gem 'haml'
-
 
 group :assets do
   gem 'uglifier'
@@ -20,4 +18,9 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'sqlite3'
+end
+
+group :produciton do
+  gem 'activerecord-postgresql-adapter'
 end
