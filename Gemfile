@@ -21,6 +21,6 @@ group :test, :development do
   gem 'sqlite3'
 end
 
-group :produciton do
-  gem 'activerecord-postgresql-adapter'
+group :production do
+  gem 'pg'
 end
